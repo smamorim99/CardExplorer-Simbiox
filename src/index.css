@@ -16,10 +16,6 @@
   --border: #2b323b;
   --border-hover: #4b5563;
 
-  --accent: #c9a84c;
-  --accent-hover: #e0bd5d;
-  --accent-soft: rgba(201, 168, 76, 0.12);
-
   --red: #b63c3c;
   --blue: #3d70b2;
   --green: #4c8a58;
@@ -125,14 +121,9 @@ h4 {
   font-family: var(--heading);
   font-weight: 600;
 
-  color: var(--text-highlight);
+  
 }
 
-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -1px;
-}
 
 h2 {
   font-size: 2rem;

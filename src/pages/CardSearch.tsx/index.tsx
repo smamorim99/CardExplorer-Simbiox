@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CardFrame } from "../../components/CardFrame";
 
+
 export const CardSearch = () => {
 
     const [cardName, setCardName] = useState<string>("");
@@ -13,10 +14,11 @@ export const CardSearch = () => {
     return (
         <div className="md:flex md:flex-col lg:grid lg:grid-cols-2   ">
 
+
             <div className="lg:my-auto my-10 mx-auto">
 
                 <CardFrame
-                    />
+                />
 
             </div>
 
