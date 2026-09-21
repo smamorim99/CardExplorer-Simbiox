@@ -12,12 +12,13 @@ import { POPULAR_CARDS } from "../../components/PopularCardsRow/functions";
 export const CardSearch = () => {
 
 
-    const [searchTerm, setSearchTerm] = useState<string>("Black Lotus")
+    const [searchTerm, setSearchTerm] = useState<string>("")
     const [showSuggestions, setShowSuggestions] = useState<string[]>([]);
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>("")
 
     const [card, setCard] = useState<any>(null)
+    const defaultCard = "Black Lotus"
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,8 +42,19 @@ export const CardSearch = () => {
     }
 
     useEffect(() => {
-        GetCard("Black Lotus");
+        const getDefaultCard = async () => {
+            try {
+                setLoading(true)
 
+                const data = await GetCard(defaultCard)
+                setCard(data)
+            } catch (error) {
+                console.error("Erro ao carregar carta padrão:", error);
+                setError("Não foi possível carregar a carta padrão.")
+                setLoading(false)
+            }
+        };
+        getDefaultCard()
     }, []);
 
     useEffect(() => {
@@ -74,8 +86,8 @@ export const CardSearch = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <div className="flex-1 flex justify-center px-6">
-                <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10">
+            <div className="flex-1 flex justify-center px-6 lg:mt-8">
+                <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10 items-start">
                     <div className="flex justify-center">
                         <CardFrame
                             cards={card}
@@ -106,7 +118,7 @@ export const CardSearch = () => {
 
                             </div>
 
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-3">
                                 <span className="text-gray-300 uppercase font-semibold">Nome da Carta</span>
                                 <input
                                     type="text"
