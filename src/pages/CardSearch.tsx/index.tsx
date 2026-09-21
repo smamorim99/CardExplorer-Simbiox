@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 import { GetCard } from "../../services";
-import { CardFrame } from "../../components/Card";
+
+import { Header } from "../../components/Header";
+import { CardFrame } from "../../components/CardFrame";
+import { PopularCardsRow } from "../../components/PopularCardsRow";
+import { POPULAR_CARDS } from "../../components/PopularCardsRow/functions";
 
 
 export const CardSearch = () => {
@@ -18,7 +22,7 @@ export const CardSearch = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try{
+        try {
             setLoading(true)
 
             const data = await GetCard(searchTerm)
@@ -26,13 +30,19 @@ export const CardSearch = () => {
             setCard(data)
 
 
-        } catch(error: any) {
+        } catch (error: any) {
 
         }
     };
 
+    const handlePopularCard = async (cardName: string) => {
+        const data = await GetCard(cardName)
+        setCard(data)
+    }
+
     useEffect(() => {
         GetCard("Black Lotus");
+
     }, []);
 
     useEffect(() => {
@@ -42,7 +52,7 @@ export const CardSearch = () => {
                     const response = await axios.get(
                         `https://api.scryfall.com/cards/autocomplete`,
                         {
-                            params:{
+                            params: {
                                 q: searchTerm
                             }
                         }
@@ -62,41 +72,62 @@ export const CardSearch = () => {
     }, [searchTerm]);
 
     return (
-        <div className="md:flex md:flex-col lg:grid lg:grid-cols-2   ">
+        <div className="min-h-screen flex flex-col">
+            <Header />
+            <div className="flex-1 flex justify-center px-6">
+                <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10">
+                    <div className="flex justify-center">
+                        <CardFrame
+                            cards={card}
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-5">
+
+                        <div className="bg-white/10 p-4 rounded-2xl w-full h-fit">
+
+                            <div className=" p-3 border-b text-lg font-bold  ">
+                                <span>Cartas Mais Procuradas</span>
+                            </div>
+
+                            <div className="p-2">
+                                <PopularCardsRow
+                                    cards={POPULAR_CARDS}
+                                    onSelect={handlePopularCard}
+                                />
+                            </div>
+                        </div>
 
 
-            <div className="lg:my-auto my-10 mx-auto">
+                        <div className="bg-white/10 p-4 rounded-2xl w-full h-fit">
 
-                <CardFrame
-                    cards={card}
-                />
+                            <div className=" p-3 border-b text-lg font-bold  ">
+                                <span>Pesquisar Cartas</span>
 
-            </div>
+                            </div>
 
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                                <span className="text-gray-300 uppercase font-semibold">Nome da Carta</span>
+                                <input
+                                    type="text"
+                                    placeholder="Ex: Mago Negro"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="w-full  p-5 rounded-lg  bg-black"
+                                />
 
-            <div className="bg-white/10 p-4 rounded-2xl">
+                                <button className="w-full bg-yellow-500 mt-1 hover:bg-yellow-600 py-3 px-4 rounded-lg"
+                                    type="submit"
+                                >
+                                    <span className="text-white font-bold">Buscar no Grimório</span>
 
-                <div className=" p-3 border-b text-lg font-bold  ">
-                    <span>Pesquisar Cartas</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
                 </div>
-
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6">
-                    <span className="text-gray-300 uppercase font-semibold">Nome da Carta</span>
-                    <input
-                        type="text"
-                        placeholder="Ex: Mago Negro"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full  p-5 rounded-lg  bg-black"
-                    />
-
-                    <button className="w-full bg-yellow-500 mt-1 hover:bg-yellow-600 py-3 px-4 rounded-lg"
-                        type="submit"
-                    >
-                        <span className="text-white font-bold">Buscar no Grimório</span>
-
-                    </button>
-                </form>
             </div>
         </div>
     )
