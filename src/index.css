@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* =========================
-   VARIÁVEIS
-========================= */
-
 :root {
   --bg: #0b0d10;
   --bg-secondary: #11151a;
@@ -51,10 +47,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* =========================
-   RESET
-========================= */
 
 * {
   box-sizing: border-box;
@@ -104,9 +96,6 @@ a {
   text-decoration: none;
 }
 
-/* =========================
-   ROOT
-========================= */
 
 #root {
   width: 100%;
@@ -116,9 +105,6 @@ a {
   flex-direction: column;
 }
 
-/* =========================
-   TIPOGRAFIA
-========================= */
 
 h1,
 h2,
@@ -150,9 +136,6 @@ p {
   color: var(--text-muted);
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
 
 ::-webkit-scrollbar {
   width: 9px;
@@ -171,9 +154,6 @@ p {
   background: #454e5a;
 }
 
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar {
   width: 100%;
@@ -247,9 +227,7 @@ p {
   background: var(--accent-soft);
 }
 
-/* =========================
-   CONTAINER
-========================= */
+
 
 .container {
   width: min(1126px, 100%);
@@ -257,10 +235,6 @@ p {
 
   padding: 40px 24px;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
   position: relative;
@@ -308,10 +282,6 @@ p {
 
   color: var(--text-muted);
 }
-
-/* =========================
-   SEARCH
-========================= */
 
 .search-container {
   width: 100%;
@@ -377,9 +347,7 @@ p {
   transform: translateY(-1px);
 }
 
-/* =========================
-   CARDS GRID
-========================= */
+
 
 .cards-grid {
   display: grid;
@@ -390,9 +358,7 @@ p {
   gap: 24px;
 }
 
-/* =========================
-   CARD
-========================= */
+
 
 .card {
   position: relative;
@@ -451,9 +417,6 @@ p {
   font-size: 0.9rem;
 }
 
-/* =========================
-   BADGES
-========================= */
 
 .badge {
   display: inline-flex;
@@ -476,9 +439,6 @@ p {
   background: var(--accent-soft);
 }
 
-/* =========================
-   BOTÕES
-========================= */
 
 .button {
   display: inline-flex;
@@ -522,9 +482,7 @@ p {
   background: var(--accent-hover);
 }
 
-/* =========================
-   LOADING
-========================= */
+
 
 .loading {
   display: flex;
@@ -537,9 +495,7 @@ p {
   color: var(--text-muted);
 }
 
-/* =========================
-   EMPTY STATE
-========================= */
+
 
 .empty-state {
   padding: 70px 20px;
@@ -553,9 +509,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+
 
 .footer {
   margin-top: auto;
@@ -571,9 +525,7 @@ p {
   background: #090b0e;
 }
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
+
 
 @media (max-width: 768px) {
   .navbar-container {
@@ -630,4 +582,4 @@ p {
   .cards-grid {
     grid-template-columns: 1fr;
   }
-}b
+}
