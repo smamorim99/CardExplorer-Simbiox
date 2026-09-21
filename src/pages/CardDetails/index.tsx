@@ -25,7 +25,7 @@ export const CardDetails = () => {
       } catch (error) {
         setError("Informações da carta não encontrada");
       } finally {
-        setLoading(true)
+        setLoading(false)
       }
     }; getCardsDetails();
   }, [name]);
@@ -40,7 +40,8 @@ export const CardDetails = () => {
   )
 
   return (
+    <div>
 
-    <></>
+    </div>
   )
 }
