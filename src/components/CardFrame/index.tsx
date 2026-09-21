@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FRAME_COLORS, type FrameColor } from "./function.ts";
 import type { CardFrameProps } from "./interface.ts";
 import { getManaSymbols } from "../ManaSymbol/function.ts";
@@ -62,7 +61,7 @@ export const CardFrame = ({ cards }: CardFrameProps) => {
                     </div>
 
                     <div className={`overflow-hidden rounded-md border ${frame.border}`}>
-                        <img src={cards.image_uris?.art_crop}
+                        <img src={cards.image_uris?.art_crop ?? ""}
                             alt={cards.name}
                             className="
                             object-cover
