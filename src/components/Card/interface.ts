@@ -5,7 +5,8 @@ export interface CardFrameProps {
         type_line: string;
         oracle_text?: string;
         image_uris?: {
-            normal: string;
+            normal?: string;
+            art_crop?: string; 
         };
         colors: string[];
         set_name: string;
