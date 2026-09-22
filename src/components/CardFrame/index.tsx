@@ -37,7 +37,7 @@ export const CardFrame = ({ card, onDetails }: CardFrameProps) => {
     const manaSymbol = getManaSymbols(card.mana_cost);
 
     return (
-        <div className="relative lg:my-auto my-10 mx-auto ">
+        <div className="relative mx-auto ">
             <div className={`absolute inset-0 rounded-[24px] bg-gradient-to-b ${frame.bg} opacity-50 blur-lg transition duration-500 group-hover:opacity-80 ${frame.glow}`}></div>
             <div className="relative z-10 flex flex-col md:max-w-[30rem] md:max-h-[90vh] w-fit  h-fit p-3 rounded-2xl bg-neutral-900  shadow-2xl  items-center justify-center">
                 <div className={`flex flex-col gap-2 rounded-lg md:max-w-[30rem] md:max-h-[90vh]  w-[18rem] h-[48vh] md:w-[22rem] md:h-[55vh] p-3 bg-gradient-to-br ${frame.bg} border-5 border-black`}>

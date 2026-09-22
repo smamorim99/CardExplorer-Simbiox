@@ -100,16 +100,15 @@ export const CardSearch = () => {
                 title="Explore o universo de Magic: The Gathering"
             />
             <div className="flex-1 flex justify-center px-6 lg:mt-8">
-                <div className="w-full max-w-6xl  flex flex-col md:grid md:grid-cols-[0.8fr_1.6fr] gap-10 md:items-start">
+                <div className="w-full max-w-6xl flex flex-col md:grid md:grid-cols-[0.8fr_1.6fr] gap-10 items-start">
                     <div className="flex flex-col w-full justify-center items-center md:gap-5">
                         <CardFrame
                             card={card}
                             onDetails={() => navigate(`/detail/${card.name}`)}
                         />
-
                     </div>
 
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-5 mx-auto">
 
                         <div className="bg-white/10 p-4 rounded-2xl w-full h-fit">
 
