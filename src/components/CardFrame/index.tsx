@@ -2,7 +2,7 @@ import { FRAME_COLORS, type FrameColor } from "./function.ts";
 import type { CardFrameProps } from "./interface.ts";
 import { getManaSymbols, parseOracleText } from "../ManaSymbol/function.ts";
 import { ManaSymbol } from "../ManaSymbol/index.tsx";
-import { BiChevronRight, BiPlus } from "react-icons/bi";
+import { BiPlus } from "react-icons/bi";
 
 
 export const CardFrame = ({ card, onDetails }: CardFrameProps) => {
