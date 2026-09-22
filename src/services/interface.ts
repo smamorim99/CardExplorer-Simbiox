@@ -39,4 +39,16 @@ export interface IScryfallCard {
         eur_foil: string | null;
         tix: string | null;
     };
+
+    rulings_uri?: string;
 }
+
+export interface IScryfallRuling {
+    object: string;
+    oracle_id: string;
+    source: string;
+    published_at: string;
+    comment: string;
+
+}
+

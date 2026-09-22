@@ -16,3 +16,14 @@ export const getManaSymbols = (manaCost?: string): string[] => {
 
   return manaCost.match(/\{[^}]+\}/g) ?? [];
 }
+
+export const parseOracleText = (text: string) => {
+  return text.split(/(\{[^}]+\})/g)
+}
+
+export const getManaSymbolURL =  (symbol: string) => {
+  const cleanSymbol = symbol.replace(/[{}]/g, "").toUpperCase();
+  const encodedSymbol = encodeURIComponent(`{${cleanSymbol}}`)
+  return `https://svgs.scryfall.io/card-symbols/${encodedSymbol}.svg`;
+
+}

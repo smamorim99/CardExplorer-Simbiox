@@ -96,7 +96,9 @@ export const CardSearch = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <Header />
+            <Header
+                title="Explore o universo de Magic: The Gathering"
+            />
             <div className="flex-1 flex justify-center px-6 lg:mt-8">
                 <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10 items-start">
                     <div className="flex flex-col justify-center items-center gap-5">

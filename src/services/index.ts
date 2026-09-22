@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { IScryfallRuling } from "./interface";
 
 
 const API_URL = "https://api.scryfall.com";
@@ -42,3 +43,10 @@ export const GetCard = async (cardName: string) => {
     } 
 
 }
+
+export const GetCardRulings = async (rulings_uri: string) : Promise<IScryfallRuling[]> => {
+    const response = await axios.get(rulings_uri)
+    
+    return response.data.data;
+}
+

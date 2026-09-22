@@ -1,6 +1,6 @@
 import { FRAME_COLORS, type FrameColor } from "./function.ts";
 import type { CardFrameProps } from "./interface.ts";
-import { getManaSymbols } from "../ManaSymbol/function.ts";
+import { getManaSymbols, parseOracleText } from "../ManaSymbol/function.ts";
 import { ManaSymbol } from "../ManaSymbol/index.tsx";
 
 
@@ -80,9 +80,22 @@ export const CardFrame = ({ card }: CardFrameProps) => {
                     </div>
 
                     <div className={`h-[30%] p-3 ${frame.textBg} rounded-md overflow-y-auto `}>
-                        <span>
-                            {card.oracle_text}
-                        </span>
+                        {parseOracleText(card?.oracle_text ?? "").map((part, index) => {
+                            if (/^\{[^}]+\}$/.test(part)) {
+                                return (
+                                    <ManaSymbol
+                                        key={index}
+                                        symbol={part}
+                                    />
+                                );
+                            }
+
+                            return (
+                                <span key={index}>
+                                    {part}
+                                </span>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
