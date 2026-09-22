@@ -72,7 +72,7 @@ export const CardDetails = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 md:p-8 md:grid md:grid-cols-[0.2fr_0.5fr] justify-center items-center gap-5">
+      <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 md:p-8 grid grid-cols-1 md:grid-cols-[minmax(240px,320px)_minmax(0,1fr)] lg:grid-cols-[320px_minmax(0,1fr)] justify-center items-center gap-5">
 
         <div className="flex justify-center">
           <img
@@ -101,7 +101,7 @@ export const CardDetails = () => {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 pb-6 sm:px-6 md:p-0">
+      <div className="max-w-7xl mx-auto px-4 pb-8 sm:px-6 md:px-8">
         <RulingInfo
           card={card.name}
           rulings={rulings}

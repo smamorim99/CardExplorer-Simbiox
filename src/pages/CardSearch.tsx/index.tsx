@@ -99,7 +99,7 @@ export const CardSearch = () => {
             <Header
                 title="Explore o universo de Magic: The Gathering"
             />
-            <div className="flex-1 flex justify-center px-6 lg:mt-8">
+            <div className="flex-1 flex sm:mt-10  justify-center px-6 lg:mt-8">
                 <div className="w-full max-w-6xl flex flex-col md:grid md:grid-cols-[0.8fr_1.6fr] gap-5 md:gap-10 items-start">
                     <div className="flex flex-col w-full justify-center items-center md:gap-5">
                         <CardFrame
@@ -108,7 +108,7 @@ export const CardSearch = () => {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-5 mx-auto">
+                    <div className="flex flex-col gap-5 mx-auto w-full">
 
                         <div className="bg-white/10 p-4 rounded-2xl w-full h-fit">
 
