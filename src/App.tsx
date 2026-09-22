@@ -7,8 +7,6 @@ function App() {
   return (
     <div>
       <AppRoutes />
-
-      test do app
     </div>
   );
 }
