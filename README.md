@@ -1,75 +1,130 @@
-# React + TypeScript + Vite
+# 🃏 Explore o universo de Magic: The Gathering
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em **React + TypeScript** para pesquisa e exploração de cartas de **Magic: The Gathering**, utilizando a **Scryfall API**.
 
-Currently, two official plugins are available:
+O projeto permite pesquisar cartas pelo nome, visualizar suas informações, texto das habilidades, características da carta e rulings, além de apresentar uma interface inspirada no universo de Magic: The Gathering.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+* 🔎 Pesquisa de cartas pelo nome
+* 🃏 Visualização da imagem da carta
+* 📋 Exibição das informações da carta
+* 📖 Visualização do texto de regras da carta
+* 🗂️ Informações sobre edição e número de coleção
+  
+## 🚀 Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este projeto foi desenvolvido utilizando:
 
-## Expanding the ESLint configuration
+* **React**
+* **TypeScript**
+* **Vite**
+* **Tailwind CSS**
+* **React Router**
+* **Axios**
+* **React Icons**
+* **Scryfall API**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔗 API
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Os dados das cartas são obtidos através da **Scryfall API**, uma API pública que disponibiliza informações sobre cartas de Magic: The Gathering.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📚 [Documentação da Scryfall API](https://scryfall.com/docs/api)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Estrutura do projeto
 
+```text
+src/
+├── components/
+│   ├── CardFrame/
+|   |── CardInfoTable/
+│   └── ...
+│
+├── Pages/
+│   ├── CardDetails/
+│   ├── CardSearch/
+│   └── ...
+│
+├── routes/
+│   └── ...
+│
+└── services/...
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+A aplicação utiliza componentes independentes para facilitar a organização e manutenção do código.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Como executar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone o repositório
 
+```bash
+git clone <URL_DO_REPOSITORIO>
 ```
+
+### 2. Acesse a pasta
+
+```bash
+cd CardExplorer-Simbiox
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Execute o projeto
+
+```bash
+npm run dev
+```
+
+Após iniciar o servidor, o Vite disponibilizará a aplicação localmente.
+
+## 🔍 Exemplo de pesquisa
+
+O usuário pode pesquisar uma carta pelo nome através da página de busca.
+
+A aplicação realiza uma requisição para a Scryfall API e utiliza os dados retornados para montar a visualização da carta.
+
+### Exemplo
+
+```text
+Mago Negro
+```
+
+A partir do resultado, são apresentadas informações como:
+
+* Nome
+* Custo de mana
+* Tipo
+* Texto da carta
+* Cores
+* Identidade de cor
+* Edição
+* Número de coleção
+* Imagem
+* Rulings
+
+## 🧩 Arquitetura
+
+A aplicação foi estruturada utilizando componentes reutilizáveis e separação de responsabilidades.
+
+### Components
+
+Responsáveis pela construção da interface e apresentação dos dados.
+
+### Services
+
+Responsáveis pela comunicação com a API externa.
+
+### Routes
+
+Responsáveis pela navegação entre as diferentes páginas da aplicação.
+
+
+## 👩‍💻 Desenvolvido por
+
+**Sofia Mendes**
+
+
