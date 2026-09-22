@@ -30,7 +30,15 @@ export const RulingInfo = ({
 
             <div className="p-3 ">
                 {rulings.map((info, index) => (
-                    <div key={index}>
+                    <div key={index}
+                        className="
+                        mt-2
+                        p-3
+                        rounded-sm
+                        border
+                        border-white/10
+                        "
+                    >
                         <span>
                             {info.comment}
                         </span>
