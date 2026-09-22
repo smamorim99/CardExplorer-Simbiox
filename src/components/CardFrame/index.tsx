@@ -42,11 +42,11 @@ export const CardFrame = ({ card }: CardFrameProps) => {
             <div className="relative z-10 flex flex-col md:max-w-[30rem] md:max-h-[90vh] w-fit  h-fit p-3 rounded-2xl bg-neutral-900  shadow-2xl  items-center justify-center">
 
 
-                <div className={`flex flex-col gap-2 rounded-lg md:max-w-[30rem] md:max-h-[90vh] w-[22rem] h-[55vh] p-3 bg-gradient-to-br ${frame.bg} border-5 border-black`}>
+                <div className={`flex flex-col gap-2 rounded-lg md:max-w-[30rem] md:max-h-[90vh] w-[min(22rem, calc(100vw-2rem))] md:w-[22rem] h-[55vh] p-3 bg-gradient-to-br ${frame.bg} border-5 border-black`}>
                     <div className="h-[8%]">
                         <div className={`h-full rounded-t-md px-3 flex items-center justify-between ${frame.header}`}>
 
-                            <span>{card.name}</span>
+                            <span className="min-w-0 flex-1 truncate">{card.name}</span>
 
                             <div className="flex items-center gap-1">
                                 {manaSymbol.map((symbol, index) => (
@@ -72,9 +72,9 @@ export const CardFrame = ({ card }: CardFrameProps) => {
                         />
                     </div>
 
-                    <div className={`h-[7%] mt-2 rounded-md px-3 flex items-center ${frame.textBg}`}
+                    <div className={`flex min-h-[7%] mt-2 rounded-md px-3 py-1 flex items-center ${frame.textBg}`}
                     >
-                        <span>
+                        <span className="min-w-0 wrap-break-word whitespace-normal leading-tight text-sm sm:text-base ">
                             {card.type_line}
                         </span>
                     </div>
