@@ -120,7 +120,7 @@ export const CardSearch = () => {
 
                         <div className="bg-white/10 p-4 rounded-2xl w-full h-fit">
 
-                            <div className=" p-3 border-b text-lg font-bold  ">
+                            <div className=" p-3 border-b text-lg font-bold">
                                 <span>Cartas Mais Procuradas</span>
                             </div>
 

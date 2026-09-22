@@ -6,6 +6,7 @@ import type { IScryfallCard, IScryfallRuling } from "../../services/interface";
 import { CardInfoTable } from "../../components/CardInfoTable";
 import { SalesInfo } from "../../components/SalesInfoTable";
 import { Header } from "../../components/Header";
+import { RulingInfo } from "../../components/RulingsInfo";
 
 export const CardDetails = () => {
   const { name } = useParams();
@@ -33,7 +34,7 @@ export const CardDetails = () => {
         setCard(data);
         setRulings([])
 
-        if(data.rulings_uri) {
+        if (data.rulings_uri) {
           const rulingData = await GetCardRulings(data.rulings_uri)
           setRulings(rulingData)
         }
@@ -71,7 +72,7 @@ export const CardDetails = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto p-8 rounded-xl lg:grid lg:grid-cols-[0.2fr_0.5fr] gap-5 justify-center items-center">
+      <div className="max-w-7xl mx-auto p-8 md:flex lg:grid lg:grid-cols-[0.2fr_0.5fr] gap-5 justify-center items-center">
 
         <div className="flex justify-center">
           <img
@@ -98,7 +99,13 @@ export const CardDetails = () => {
             info={card}
           />
         </div>
+      </div>
 
+      <div className="max-w-3xl mx-auto">
+        <RulingInfo
+          card={card.name}
+          rulings={rulings}
+        />
       </div>
 
     </div>
