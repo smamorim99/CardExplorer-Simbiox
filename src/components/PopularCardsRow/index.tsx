@@ -4,7 +4,7 @@ import type { IPopularCards } from "./interface";
 export const PopularCardsRow = ({ cards, onSelect }: IPopularCards) => {
     const [selected, setSelected] = useState<string | null>(null);
     return (
-        <div className="flex gap-3 py-2">
+        <div className="flex flex-col md:flex-row  gap-3 py-2">
 
             {cards.map((card) => {
                 const isSelected = selected === card.name;
@@ -14,7 +14,7 @@ export const PopularCardsRow = ({ cards, onSelect }: IPopularCards) => {
                         type="button"
                         onClick={() => { onSelect(card.name); setSelected(card.name) }}
                         className={
-                            `p-2 
+                        `p-2 
                         rounded-lg
                         border
                         ${isSelected

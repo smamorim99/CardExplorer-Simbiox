@@ -100,20 +100,13 @@ export const CardSearch = () => {
                 title="Explore o universo de Magic: The Gathering"
             />
             <div className="flex-1 flex justify-center px-6 lg:mt-8">
-                <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10 items-start">
-                    <div className="flex flex-col justify-center items-center gap-5">
+                <div className="w-full max-w-6xl  flex flex-col md:grid md:grid-cols-[0.8fr_1.6fr] gap-10 md:items-start">
+                    <div className="flex flex-col w-full justify-center items-center md:gap-5">
                         <CardFrame
                             card={card}
+                            onDetails={() => navigate(`/detail/${card.name}`)}
                         />
-                        
-                        <div>
-                            <button
-                                onClick={() => navigate(`/detail/${card.name}`)}
-                                className="flex rounded-lg border border-white bg-black hover:bg-white/10 p-2"
-                            >
-                                Ver detalhes
-                            </button>
-                        </div>
+
                     </div>
 
                     <div className="flex flex-col gap-5">
@@ -124,7 +117,7 @@ export const CardSearch = () => {
                                 <span>Cartas Mais Procuradas</span>
                             </div>
 
-                            <div className="p-2">
+                            <div className="p-2 overflow-hidden">
                                 <PopularCardsRow
                                     cards={POPULAR_CARDS}
                                     onSelect={handlePopularCard}
@@ -150,7 +143,8 @@ export const CardSearch = () => {
                                         name="card-name"
                                         placeholder="Ex: Mago Negro"
                                         value={searchTerm}
-                                        onChange={(e) => {setSearchTerm(e.target.value)
+                                        onChange={(e) => {
+                                            setSearchTerm(e.target.value)
                                             setError("")
                                         }}
                                         className="w-full  p-3 rounded-lg  bg-black"

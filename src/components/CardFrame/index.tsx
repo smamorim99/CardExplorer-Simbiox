@@ -2,9 +2,10 @@ import { FRAME_COLORS, type FrameColor } from "./function.ts";
 import type { CardFrameProps } from "./interface.ts";
 import { getManaSymbols, parseOracleText } from "../ManaSymbol/function.ts";
 import { ManaSymbol } from "../ManaSymbol/index.tsx";
+import { BiChevronRight, BiPlus } from "react-icons/bi";
 
 
-export const CardFrame = ({ card }: CardFrameProps) => {
+export const CardFrame = ({ card, onDetails }: CardFrameProps) => {
     if (!card) {
         return (
             <div>
@@ -37,12 +38,9 @@ export const CardFrame = ({ card }: CardFrameProps) => {
 
     return (
         <div className="relative lg:my-auto my-10 mx-auto ">
-
             <div className={`absolute inset-0 rounded-[24px] bg-gradient-to-b ${frame.bg} opacity-50 blur-lg transition duration-500 group-hover:opacity-80 ${frame.glow}`}></div>
             <div className="relative z-10 flex flex-col md:max-w-[30rem] md:max-h-[90vh] w-fit  h-fit p-3 rounded-2xl bg-neutral-900  shadow-2xl  items-center justify-center">
-
-
-                <div className={`flex flex-col gap-2 rounded-lg md:max-w-[30rem] md:max-h-[90vh] w-[min(22rem, calc(100vw-2rem))] md:w-[22rem] h-[55vh] p-3 bg-gradient-to-br ${frame.bg} border-5 border-black`}>
+                <div className={`flex flex-col gap-2 rounded-lg md:max-w-[30rem] md:max-h-[90vh]  w-[18rem] h-[48vh] md:w-[22rem] md:h-[55vh] p-3 bg-gradient-to-br ${frame.bg} border-5 border-black`}>
                     <div className="h-[8%]">
                         <div className={`h-full rounded-t-md px-3 flex items-center justify-between ${frame.header}`}>
 
@@ -72,9 +70,9 @@ export const CardFrame = ({ card }: CardFrameProps) => {
                         />
                     </div>
 
-                    <div className={`flex min-h-[7%] mt-2 rounded-md px-3 py-1 flex items-center ${frame.textBg}`}
+                    <div className={`flex h-[7%] mt-2 rounded-md px-3 py-1 flex items-center ${frame.textBg}`}
                     >
-                        <span className="min-w-0 wrap-break-word whitespace-normal leading-tight text-sm sm:text-base ">
+                        <span className="min-w-0 w-full truncate leading-tight text-sm sm:text-base ">
                             {card.type_line}
                         </span>
                     </div>
@@ -99,6 +97,15 @@ export const CardFrame = ({ card }: CardFrameProps) => {
                     </div>
                 </div>
             </div>
+            {onDetails && (
+                <button
+                    type="button"
+                    onClick={onDetails}
+                    className={`absolute bottom-5 right-5 z-30 flex -mt-1 p-1 rounded-full border border-white bg-black/90 hover:bg-white/10 hover:border-yellow-600/80 hover:bg-yellow-600/50 hover:text-white`}
+                >
+                    <BiPlus size={25} />
+                </button>
+            )}
         </div>
     )
 }
