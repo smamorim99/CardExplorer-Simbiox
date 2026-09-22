@@ -4,8 +4,8 @@ import { getManaSymbols } from "../ManaSymbol/function.ts";
 import { ManaSymbol } from "../ManaSymbol/index.tsx";
 
 
-export const CardFrame = ({ cards }: CardFrameProps) => {
-    if (!cards) {
+export const CardFrame = ({ card }: CardFrameProps) => {
+    if (!card) {
         return (
             <div>
                 <div className="lg:my-auto my-10 mx-auto">
@@ -20,20 +20,20 @@ export const CardFrame = ({ cards }: CardFrameProps) => {
     }
 
     const getFremeColor = (): FrameColor => {
-        if (cards.type_line.includes("Artifact")) {
+        if (card.type_line.includes("Artifact")) {
             return "A"
         }
-        if (cards.colors.length === 0) {
+        if (card.colors.length === 0) {
             return "C"
         }
-        if (cards.colors.length === 1) {
-            return cards.colors[0] as FrameColor;
+        if (card.colors.length === 1) {
+            return card.colors[0] as FrameColor;
         }
         return "M"
     }
     const frame = FRAME_COLORS[getFremeColor()];
 
-    const manaSymbol = getManaSymbols(cards.mana_cost);
+    const manaSymbol = getManaSymbols(card.mana_cost);
 
     return (
         <div className="relative lg:my-auto my-10 mx-auto ">
@@ -46,7 +46,7 @@ export const CardFrame = ({ cards }: CardFrameProps) => {
                     <div className="h-[8%]">
                         <div className={`h-full rounded-t-md px-3 flex items-center justify-between ${frame.header}`}>
 
-                            <span>{cards.name}</span>
+                            <span>{card.name}</span>
 
                             <div className="flex items-center gap-1">
                                 {manaSymbol.map((symbol, index) => (
@@ -61,8 +61,8 @@ export const CardFrame = ({ cards }: CardFrameProps) => {
                     </div>
 
                     <div className={`overflow-hidden rounded-md border ${frame.border}`}>
-                        <img src={cards.image_uris?.art_crop ?? ""}
-                            alt={cards.name}
+                        <img src={card.image_uris?.art_crop ?? ""}
+                            alt={card.name}
                             className="
                             object-cover
                             rounded-md
@@ -75,13 +75,13 @@ export const CardFrame = ({ cards }: CardFrameProps) => {
                     <div className={`h-[7%] mt-2 rounded-md px-3 flex items-center ${frame.textBg}`}
                     >
                         <span>
-                            {cards.type_line}
+                            {card.type_line}
                         </span>
                     </div>
 
                     <div className={`h-[30%] p-3 ${frame.textBg} rounded-md overflow-y-auto `}>
                         <span>
-                            {cards.oracle_text}
+                            {card.oracle_text}
                         </span>
                     </div>
                 </div>

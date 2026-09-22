@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { GetCard } from "../../services";
 import { RiLoader4Fill } from "react-icons/ri";
+import type { IScryfallCard } from "../../services/interface";
 
 export const CardDetails = () => {
   const { name } = useParams();
 
-  const [card, setCard] = useState<any>(null)
+  const [card, setCard] = useState<IScryfallCard | null>(null);
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState("")
 
@@ -41,7 +42,7 @@ export const CardDetails = () => {
 
   return (
     <div>
-
+      
     </div>
   )
 }

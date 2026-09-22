@@ -101,7 +101,7 @@ export const CardSearch = () => {
                 <div className="w-full max-w-6xl grid lg:grid-cols-[0.8fr_1.6fr] gap-10 items-start">
                     <div className="flex flex-col justify-center items-center gap-5">
                         <CardFrame
-                            cards={card}
+                            card={card}
                         />
                         
                         <div>
